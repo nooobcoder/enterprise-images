@@ -42,15 +42,14 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get install -y yarn
 RUN sudo npm i -g nodemon serve eslint typescript npkill
 
+COPY [ "configure", "/coder/configure" ]
+COPY [ ".zshrc", "~/.zshrc" ]
+
+RUN chmod +x /coder/configure
+
 USER coder
 RUN sudo chsh -s /bin/zsh $USER
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-
-COPY [ "configure", "/coder/configure" ]
-COPY [ ".zshrc", "~/.zshrc" ]
-
-USER root
-RUN chmod +x /coder/configure
 
 USER coder
