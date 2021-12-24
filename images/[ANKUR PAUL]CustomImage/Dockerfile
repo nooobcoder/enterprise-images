@@ -43,7 +43,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get install -y yarn
 RUN sudo npm i -g nodemon serve eslint typescript npkill
 
 COPY [ "configure", "/coder/configure" ]
-COPY [ ".zshrc", "~/.zshrc" ]
+COPY [ ".zshrc", "/.zshrc" ]
 
 RUN chmod +x /coder/configure
 
