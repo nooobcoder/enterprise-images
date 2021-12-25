@@ -30,6 +30,14 @@ RUN apt-get update && \
     # Install latest Git using their official PPA
     add-apt-repository ppa:git-core/ppa && \
     DEBIAN_FRONTEND="noninteractive" apt-get install --yes git
+    
+ # Packages required for multi-editor support
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y \
+    libxtst6 \
+    libxrender1 \
+    libfontconfig1 \
+    libxi6 \
+    libgtk-3-0
 
 # Install webstorm.
 RUN mkdir -p /opt/webstorm
