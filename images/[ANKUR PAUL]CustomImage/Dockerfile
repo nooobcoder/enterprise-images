@@ -55,7 +55,7 @@ RUN ln -s /opt/idea/bin/idea.sh /usr/bin/intellij-idea-community
 
 # Install pycharm.
 RUN mkdir -p /opt/pycharm
-RUN curl -L "https://download.jetbrains.com/product?code=PCU&latest&distribution=linux" | tar -C /opt/pycharm --strip-components 1 -xzvf -
+RUN curl -L "https://download.jetbrains.com/product?code=PC&latest&distribution=linux" | tar -C /opt/pycharm --strip-components 1 -xzvf -
 
 # Add a binary to the PATH that points to the pycharm startup script.
 RUN ln -s /opt/pycharm/bin/pycharm.sh /usr/bin/pycharm-community
